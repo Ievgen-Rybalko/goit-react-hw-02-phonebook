@@ -1,13 +1,20 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './ContactForm.module.css';
 
 class ContactForm extends Component {
   
+  static propTypes = {
+    name: PropTypes.string,
+    number: PropTypes.string,
+  };
+
   state = {
     name:'',
     number:''
   };
+
 
 
   handleChange = event => {
@@ -19,6 +26,8 @@ class ContactForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.onFormSubmit(this.state);
+    this.props.onNewContactAdd(this.state.name, this.state.number);
+
     this.reset();
 
   }
