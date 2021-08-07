@@ -12,6 +12,7 @@ const ContactList = ({contacts, onDeleteCont}) => (
          return (
           <ContactItem
           key={id}
+          id={id}
           name={name}
           number={number}
           onDeleteContact={onDeleteCont}
